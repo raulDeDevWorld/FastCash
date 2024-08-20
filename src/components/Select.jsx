@@ -1,13 +1,11 @@
 'use client';
 import { useAppContext } from '@/context/AppContext'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation';
 import style from './Select.module.css'
 
 
-export default function isSelect3({ arr, name, click, defaul, uuid }) {
+export default function Page({ arr, name, click, defaul, uuid }) {
     const [isSelect3, setIsSelect3] = useState(false)
-    const router = useRouter()
 
     const [state, setState] = useState(defaul)
 
