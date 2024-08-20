@@ -1,3 +1,4 @@
+import { AppProvider } from '../context/AppContext'
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +17,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+        <link rel='manifest' href='/manifest.json' />
+        <link rel='apple-touch-icon' href='/favicon.png' />
+        <meta name="theme-color" content="black" />
+        <meta name="msapplication-navbutton-color" content="black" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="description" content="Sistema Fast Cash" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Fast Cash" />
+        <title>Fast Cash</title>
+      </head>
+      <AppProvider>
+        <body className={inter.className}>
+          {children}
+        </body>
+      </AppProvider>
     </html>
   );
 }
