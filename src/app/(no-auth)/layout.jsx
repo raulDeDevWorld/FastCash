@@ -4,7 +4,6 @@ import { useAppContext } from '@/context/AppContext'
 import { useState, useEffect } from 'react'
 // import style from './Medico.module.css'
 import { useRouter } from 'next/navigation';
-// import Cart from '@/components/Cart'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 // import BottomNavigation from '@/components/BottomNavigation'
