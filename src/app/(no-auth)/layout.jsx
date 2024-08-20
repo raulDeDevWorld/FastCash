@@ -40,7 +40,6 @@ function Home({ children }) {
     const signOutConfirm = async () => {
         await signOut()
         setUserProfile(null)
-        setUserCart({})
         setUserProduct(undefined),
             setRecetaDB(undefined),
             setPrecioJustoPDB(undefined)
