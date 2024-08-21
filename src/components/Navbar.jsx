@@ -29,7 +29,7 @@ export default function BottomNavigation({ rol }) {
 
     const Header = () => {
         return <li className="flex flex-col justify-center items-center px-[10px] py-5 border-b border-gray-[1px]  w-full">
-            <img src="/logo.jpeg" className='h-[70px] border-white border-[1px]' alt="" />
+            <img src="/logo.png" className='h-[70px] border-white border-[1px]' alt="" />
             <h1 className='16px font-medium text-center text-white py-[10px]'></h1>
             <h3 className='text-white text-center'>Bienvenido </h3>
             <h3 className='text-white text-center'>Super Administrador</h3>

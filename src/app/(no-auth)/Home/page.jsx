@@ -457,19 +457,19 @@ export default function Home() {
                                 <label htmlFor="" className="mr-5 text-[10px]">
                                     Producto del proyecto:
                                 </label>
-                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='filtro' click={handlerSelectClick} defaultValue={filter['filtro']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
+                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='Producto del proyecto' click={handlerSelectClick} defaultValue={filter['Producto del proyecto']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
                             </div>
                             <div className='flex justify-between'>
                                 <label htmlFor="" className="mr-5 text-[10px]">
                                     Número de teléfono:
                                 </label>
-                                <input className="h-[25px] max-w-[173px] w-full px-5 border border-[#cfcfcf] rounded-[5px] text-[10px]  " arr={['Opción 1', 'Opción 2']} name='filtro' click={handlerSelectClick} defaultValue={filter['filtro']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
+                                <input className="h-[25px] max-w-[173px] w-full px-5 border border-[#cfcfcf] rounded-[5px] text-[10px]  " arr={['Opción 1', 'Opción 2']} name='filtro' click={handlerSelectClick} defaultValue={filter['Número de teléfono']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
                             </div>
                             <div className='flex justify-between'>
                                 <label htmlFor="" className="mr-5 text-[10px]">
                                     Estado de reembolso:
                                 </label>
-                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='Dias vencidos 1' click={handlerSelectClick} defaultValue={filter['Dias vencidos 1']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
+                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='Dias vencidos 1' click={handlerSelectClick} defaultValue={filter['Dias vencidos 1']} uuid='123' label='Filtro 2' position='absolute left-0 top-[25px]' bg='white' required />
                             </div>
                             <div className='flex justify-between'>
                                 <label htmlFor="" className="mr-5 text-[10px]">
@@ -483,14 +483,14 @@ export default function Home() {
                                 <label htmlFor="" className="mr-5 text-[10px]">
                                     Número de prestamos:
                                 </label>
-                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='Número de prestamos' click={handlerSelectClick} defaultValue={filter['Número de prestamos']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
+                                <SelectSimple arr={['Opción 1', 'Opción 2']} name='Número de prestamos' click={handlerSelectClick} defaultValue={filter['Número de prestamos']} uuid='123' label='Filtro 3' position='absolute left-0 top-[25px]' bg='white' required />
                             </div>
 
                             <div className='flex justify-between'>
                                 <label htmlFor="" className="mr-5 text-[10px]">
                                     Nombre del cliente:
                                 </label>
-                                <input className="h-[25px] max-w-[173px] w-full px-5 border border-[#cfcfcf] rounded-[5px] text-[10px]  " arr={['Opción 1', 'Opción 2']} name='filtro' click={handlerSelectClick} defaultValue={filter['filtro']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
+                                <input className="h-[25px] max-w-[173px] w-full px-5 border border-[#cfcfcf] rounded-[5px] text-[10px]  " arr={['Opción 1', 'Opción 2']} name='filtro 4' click={handlerSelectClick} defaultValue={filter['filtro']} uuid='123' label='Filtro 1' position='absolute left-0 top-[25px]' bg='white' required />
                             </div>
                             <div className='flex justify-between'>
                                 <label htmlFor="" className="mr-5 text-[10px]">

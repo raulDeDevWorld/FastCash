@@ -2,97 +2,102 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
-import { useRouter } from 'next/navigation';
-export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [captcha, setCaptcha] = useState(null);
-    const router = useRouter()
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+import Input from '@/components/Input'
+import InputPass from '@/components/InputPass'
+import { useRouter } from 'next/navigation'
+import Button from '@/components/Button'
 
-        // Aquí puedes manejar la autenticación y validación del captcha.
-        if (!captcha) {
-            alert("Por favor, completa el captcha");
-            return;
-        }
+import Link from 'next/link';
+import ReCAPTCHA from "react-google-recaptcha";
 
-        // Lógica de autenticación (llamada a API, etc.)
-    };
 
-    const handleCaptchaChange = (value) => {
-        setCaptcha(value);
-    };
 
-    return (
-        <>
-        <img src="/bg.png" className='absolute left-0 top-0 block object-cover h-full w-full' alt="" />
-            <Head>
-                <title>Login</title>
-            </Head>
-            <div className="relative flex items-center justify-center min-h-screen z-20">
-                <div className=" p-8 rounded-lg shadow-lg w-full max-w-md">
-                    <h2 className="text-2xl font-bold text-center mb-8">Iniciar Sesión</h2>
-                    <form onSubmit={handleSubmit} className='z-50'>
-                        <div className="mb-4">
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                User
-                            </label>
-                            <input
-                                type="text"
-                                id="email"
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label htmlFor="text" className="block text-sm font-medium text-gray-700">
-                                Codigo recibido al correo
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div className="mb-6">
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                                Contraseña
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
-                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
-                        <div className="mb-6">
-                            <div className="g-recaptcha" data-sitekey="TU_CLAVE_DEL_SITIO" data-callback={handleCaptchaChange}></div>
-                        </div>
-                        <button
-                        onClick={()=>router.push('/Home')}
-                            type="submit"
-                            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
-                            Iniciar Sesión
-                        </button>
-                        <br />
+export default function Home() {
+  //   const { user, userDB, setUserProfile, setUserSuccess, success, setUserData, postsIMG, setUserPostsIMG, sound1, sound2, setSound1, setSound2, } = useAppContext()
+  const [isDisable, setIsDisable] = useState(false)
+  const [captcha, setCaptcha] = useState('')
+  const router = useRouter()
 
-                        <br />
-                        <button
-                            type="submit"
-                            className="w-full bg-green-500 text-white py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
-                            Solicitar Codigo al correo
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <Script src="https://www.google.com/recaptcha/api.js" async defer />
-        </>
-    );
+
+
+  const recaptchaRef = React.useRef();
+
+  const onSubmitWithReCAPTCHA = async (e) => {
+    e.preventDefault()
+
+
+captcha.length > 10 &&   router.push('/Home')
+
+
+  }
+
+
+
+
+
+
+
+
+  const signInHandler = async (e) => {
+    
+    router.push('/Home')
+    return
+    e.preventDefault()
+
+    let email = e.target[0].value
+    let password = e.target[1].value
+
+    if (email.length == 0 || password.length == 0) {
+      setUserSuccess('Complete')
+      return setTimeout(() => { setIsDisable(false) }, 6000)
+    }
+    // if (email.length < 10 || password.length < 7) {
+    //   setUserSuccess('PasswordMin')
+    //   return setTimeout(() => { setIsDisable(false) }, 6000)
+    // }
+    signInWithEmail(email, password, setUserProfile)
+  }
+  function onChange(value) {
+    setCaptcha(value);
+}
+  return (
+    <div className='relative w-screen h-screen flex flex-col justify-center items-center p-5 bg-[#F4951B]'>
+      <span className='absolute top-[20px] left-[30px] z-30 text-white text-[60px]'  > Fast Cash</span>
+
+      <img src="/bg-top.png" className='absolute top-0 right-0 h-[30vh] z-20' alt="" />
+      <img src="/bg-bottom.png" className='absolute bottom-0 left-0 h-[40vh] z-20' alt="" />
+
+      <div className='absolute top-0 bg-[#F4951B] h-[50%] w-full'>
+
+      </div>
+      <form className={`relative w-full max-w-[450px] space-y-4 shadow-2xl  bg-white rounded-[20px] px-5 py-10 z-[50]`} onSubmit={onSubmitWithReCAPTCHA} >
+        {/* <form className={`w-full max-w-[450px] space-y-4 border-[1px] border-white shadow-2xl shadow-white px-5 py-10`} onSubmit={!isDisable ? signInHandler : (e) => e.preventDefault()} > */}
+        <h5 className="text-[18px] text-center text-gray-800" >Iniciar Sesión</h5>
+        <div >
+          <label htmlFor="email" className="block mb-2 text-[16px] text-left font-medium text-gray-800">User</label>
+          <Input type="text" name="user" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-[16px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    " placeholder="User123"  />
+        </div>
+        <div>
+          <label htmlFor="password" className="block mb-2 text-[16px] text-left  font-medium text-gray-800">Contraseña</label>
+          <InputPass type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-[16px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    "  />
+        </div>
+        <div >
+          <label htmlFor="cod" className="block mb-2 text-[16px] text-left font-medium text-gray-800">Codigo de Validación</label>
+          <Input type="text" name="user" id="cod" className="bg-gray-50 border border-gray-300 text-gray-900 text-[16px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5    " placeholder="User123"  />
+        </div>
+
+        <div className="flex items-start">
+          <Link href='#' className="ml-auto  text-[14px] text-gray-400 underline cursor-pointer">Solicitar Codigo de validacion</Link>
+        </div>
+        <div className='w-full flex justify-center'>
+          <ReCAPTCHA
+            sitekey="6LdcOwwqAAAAAPEqYv1NDkUpgJRRSaEna_ER9YTT"
+            onChange={onChange}
+          />
+        </div>
+        <Button type="submit" theme="Primary">Iniciar Sesión</Button>
+        {/* <div className="text-[14px] text-center font-medium text-gray-800 underline cursor-pointer">Solicitar Codigo de validacion<Link href="#" className="text-gray-400 underline"></Link ></div> */}
+      </form>
+    </div>
+  )
 }

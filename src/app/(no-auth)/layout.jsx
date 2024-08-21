@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 // import BottomNavigation from '@/components/BottomNavigation'
 import Navbar from '@/components/Navbar'
-import Modal from '@/components/Modal'
+import TimeDisplay from '@/components/TimeDisplay'
 // import VideoClient from '@/components/Vide'
 import { Turret_Road } from 'next/font/google'
 // import Whatsapp from '@/components/Whatsapp'
@@ -161,14 +161,15 @@ function Home({ children }) {
                 {webScann && <div className='fixed top-0 left-0 w-screen h-screen bg-[#ffffff00] z-40' onClick={() => setSearch(false)}></div>}
 
                 <main className={`relative w-screen min-w-screen  lg:pb-0  lg:min-w-auto my-[0px] bg-gray-100 lg:min-h-screen  ${nav ? 'w-screen pl-[220px] lg:pl-[280px] ' : '  lg:px-[0px]'}`} onClick={() => setNav(false)} style={{ transition: 'all 0.5' }}>
-                    <nav className="w-screen fixed top-0 border-b border-gray-200 shadow-sm flex items-center justify-between bg-[#EFEBEB]  p-0 h-[70px] z-30" onClick={() => setNav(false)}>
+                    <nav className="w-screen fixed top-0 border-b border-gray-200 shadow-sm flex items-center justify-between bg-[#ffffff]  p-0 h-[70px] z-30" onClick={() => setNav(false)}>
                         {pathname !== '/Cliente' && <div className='flex  hidden lg:block'>
                             <div className='flex '>
-                                <button type="button" className="inline-flex items-center p-2 text-[14px] text-white rounded-lg hidden lg:block" onClick={openNav}>
-                                    <svg className="w-9 h-9 text-white" aria-hidden="true" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"  ></path></svg>
+                                <button type="button" className="p-4 inline-flex items-center p-2 text-[14px] text-[#a8a8a8] rounded-lg hidden lg:block" onClick={openNav}>
+                                    <svg className="w-9 h-9 text-gray-500" aria-hidden="true" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="#a8a8a8" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"  ></path></svg>
                                 </button>
-                                <h1 className='text-[18px] hidden lg:flex lg:justify-between ml-5 lg:w-[240px] lg:items-center text-white font-medium'> <img src="/logo.jpeg" className='h-[60px] border-white border-[1px] ' alt="" />
-                                    {/* <span className='font-medium'>PRECIO JUSTO SRL</span> */}
+                                <h1 className='text-[18px] hidden lg:flex lg:justify-between ml-5 lg:w-[240px] lg:items-center text-white font-medium'> 
+                                    {/* <img src="/logo.png" className='h-[60px] border-white border-[1px] ' alt="" /> */}
+                                    <span className='font-medium text-black'>Fast Cash</span>
                                 </h1>
                             </div>
                         </div>
@@ -195,8 +196,10 @@ function Home({ children }) {
                             </div>
                             <input type="text" id="search-navbar" onChange={handlerFilter} className="block w-full bg-white rounded-full lg:min-w-[400px] p-2 pl-10 text-[14px] text-gray-950 text-center border-b border-gray-300  bg-transparent focus:ring-white focus:border-white focus:outline-transparent" defaultValue={filter} placeholder="Buscar producto..." />
                         </div>}
+                        
+                        <TimeDisplay />
 
-                        {user && user !== undefined && user.rol !== 'Distribuidor' && pathname === '/Cliente' && <Cart />}
+
                     </nav>
 
                     {search
