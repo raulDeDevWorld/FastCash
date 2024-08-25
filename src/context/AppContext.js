@@ -30,6 +30,12 @@ export function AppProvider({ children }) {
 
 
 
+	const [fondoPrimario, setFondoPrimario] = useState('#000000')
+	const [fondoSecundario, setFondoSecundario] = useState('#292929')
+	const [fondoTerciario, setFondoTerciario] = useState('')
+	const [theme, setTheme] = useState('neutro')
+
+	const [idioma, setIdioma] = useState('Español')
 
 
 
@@ -120,6 +126,15 @@ export function AppProvider({ children }) {
 			select,
 			users,
 			destinatario,
+
+
+
+			fondoPrimario, setFondoPrimario,
+			fondoSecundario, setFondoSecundario,
+			fondoTerciario, setFondoTerciario,
+			idioma, setIdioma,
+			theme, setTheme,
+
 			image1, setImage1, image2, setImage2, image3, setImage3,
 			webcamRef1, item, setItem,
 			webcamRef2,
@@ -164,8 +179,13 @@ export function AppProvider({ children }) {
 
 		})
 
-	}, [user, userDB, subItemNav,success, state, nav, userNav, modal, transferencia, currency, select, select2, select3, isSelect, isSelect2, isSelect3, isSelect4, isSelect5, users, destinatario, image1, image2, image3, item, webcamRef1,
+	}, [user, userDB,
+		theme,
+		fondoPrimario,
+			fondoSecundario,
+			fondoTerciario, subItemNav,success, state, nav, userNav, modal, transferencia, currency, select, select2, select3, isSelect, isSelect2, isSelect3, isSelect4, isSelect5, users, destinatario, image1, image2, image3, item, webcamRef1,
 		webcamRef2,
+		idioma,
 		webcamRef3,
 		fecha, qr, QRurl, divisas, envios,
 		webScann,

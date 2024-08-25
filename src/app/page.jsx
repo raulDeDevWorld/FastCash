@@ -26,7 +26,7 @@ export default function Home() {
     e.preventDefault()
 
 
-captcha.length > 10 &&   router.push('/Home')
+captcha.length > 10 &&   router.push('/Home?seccion=coleccion&item=Casos%20de%20Cobranza')
 
 
   }
@@ -61,16 +61,20 @@ captcha.length > 10 &&   router.push('/Home')
     setCaptcha(value);
 }
   return (
-    <div className='relative w-screen h-screen flex flex-col justify-center items-center p-5 bg-[#F4951B]'>
+    <div className='relative w-screen h-screen flex flex-col justify-center items-center p-5 bg-[#f3f3f3]'>
+       {/* <img src="bg.jpg" className='fixed top-0 left-0 h-screen w-screen object-cover' alt="" /> */}
+    {/*  <div className='fixed top-0 left-0 h-screen w-screen bg-[#00000052] z-20'></div> */}
       <span className='absolute top-[20px] left-[30px] z-30 text-white text-[60px]'  > Fast Cash</span>
 
-      <img src="/bg-top.png" className='absolute top-0 right-0 h-[30vh] z-20' alt="" />
-      <img src="/bg-bottom.png" className='absolute bottom-0 left-0 h-[40vh] z-20' alt="" />
+      {/* <img src="/bg-top.png" className='absolute top-0 right-0 h-[30vh] z-20' alt="" />
+      <img src="/bg-bottom.png" className='absolute bottom-0 left-0 h-[40vh] z-20' alt="" /> */}
 
-      <div className='absolute top-0 bg-[#F4951B] h-[50%] w-full'>
+      <div className='absolute top-0 bg-gray-900 h-[50%] w-full overflow-hidden'>
+      {/* <img src="bg.jpg" className='fixed top-0 left-0 h-[50vh] w-screen object-cover' alt="" />
+     <div className='fixed top-0 left-0 h-[50vh] w-screen bg-[#000000b6] z-20'></div> */}
 
       </div>
-      <form className={`relative w-full max-w-[450px] space-y-4 shadow-2xl  bg-white rounded-[20px] px-5 py-10 z-[50]`} onSubmit={onSubmitWithReCAPTCHA} >
+      <form className={`relative w-full max-w-[450px] space-y-4 shadow-2xl  bg-gray-50 rounded-[20px] px-5 py-10 z-[50]`} onSubmit={onSubmitWithReCAPTCHA} >
         {/* <form className={`w-full max-w-[450px] space-y-4 border-[1px] border-white shadow-2xl shadow-white px-5 py-10`} onSubmit={!isDisable ? signInHandler : (e) => e.preventDefault()} > */}
         <h5 className="text-[18px] text-center text-gray-800" >Iniciar Sesión</h5>
         <div >

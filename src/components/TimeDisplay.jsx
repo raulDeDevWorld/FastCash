@@ -34,7 +34,7 @@ const TimeDisplay = () => {
 
   return (
     <div>
-      <p className='w-[400px] text-[12px]'>México city: {dateTime.date} {dateTime.time}</p>
+      <p className='w-[280px] text-[12px] text-white'>México city: {dateTime.date} {dateTime.time}</p>
     </div>
   );
 };

@@ -24,13 +24,12 @@ export default function Select({ arr, name, click, defaultValue, uuid, label, po
                     className={`relative  border border-[#cfcfcf]  pt-.5 mb-0   w-full text-[10px]   px-5 cursor-pointer ${bg ? `${bg} pb-2` : 'bg-transparent text-gray-900 border-[#a1a1a1]'}   focus:outline-none focus:ring-0  peer rounded-[5px]`}
                     onClick={handlerSelect}>
                     {defaultValue === 'Seleccionar' && <span className='absolute top-2'>Seleccionar</span>}
-                    <input type="text" readonly className='relative top-[4.5px] w-full h-full border-transparent outline-none focus:outline-none bg-transparent caret-transparent cursor-pointer' value={defaultValue !== undefined && defaultValue !== 'Seleccionar' ? defaultValue : ''} minLength={2} required={required} />
-                    <span className={select === name ? 'absolute top-[4px] right-[19px] rotate-[270deg]' : 'absolute top-[4.5px] right-[20px] rotate-90'}>{'>'}</span>
-
+                    <input type="text" readonly className='relative top-[4.5px] w-full h-full border-transparent outline-none focus:outline-none bg-transparent caret-transparent cursor-pointer' value={defaultValue !== undefined && defaultValue !== 'Seleccionar' ? defaultValue : arr[0]} minLength={2} required={required} />
+                    <span className={select === name ? 'absolute top-[4px] right-[10px] rotate-[270deg]' : 'absolute top-[4.5px] right-[10px] rotate-90'}>{'>'}</span>
                     <ul
-                        className={` ${position ? position : 'relative'}  ${bg ? 'bg-gray-100' : 'bg-transparent'} mt-0  transition-all rounded-[5px]  w-full  ${select === name ? ` ${arr.length >= 2 && 'h-[65px] border-t z-10  overflow-auto '} ${arr.length == 2 && 'h-[20px] border-t overflow-hidden  z-10'} ${arr.length == 1 && 'h-[36px] border-t overflow-hidden  z-10'}  ` : 'h-[0] overflow-hidden'}`}  >
+                        className={` ${position ? position : 'relative'}  ${bg ? 'bg-gray-50' : 'bg-transparent'} mt-0  transition-all rounded-[5px]  w-full  ${select === name ? ` ${arr.length > 2 && 'h-[75px] border-t z-10 border border-[#cfcfcf]   overflow-auto '} ${arr.length == 2 && 'h-[48px] border-t overflow-hidden border border-[#cfcfcf]   z-10'} ${arr.length == 1 && 'h-[25px] border-t overflow-hidden border border-[#cfcfcf]   z-10'}  ` : 'h-[0] overflow-hidden'}`}  >
                         {
-                            arr.map((i, index) => <li key={index} className='flex items-center text-black border-b cursor-pointer px-2 py-1' onClick={() => handlerUserState(name, i)}> {i} </li>)
+                            arr.map((i, index) => <li key={index} className='flex items-center hover:bg-gray-100 text-black border-b cursor-pointer px-2 py-1' onClick={() => handlerUserState(name, i)}> {i} </li>)
                         }
                     </ul>
                 </div>
