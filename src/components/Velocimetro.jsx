@@ -1,16 +1,16 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
-// import Highcharts from 'highcharts';
-// import HighchartsMore from 'highcharts/highcharts-more';
-// import HighchartsReact from 'highcharts-react-official';
+import Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import HighchartsReact from 'highcharts-react-official';
 
 
 
 
 
-import Highcharts from 'highcharts'
+// import Highcharts from 'highcharts'
 import HighchartsExporting from 'highcharts/modules/exporting'
-import HighchartsReact from 'highcharts-react-official'
+// import HighchartsReact from 'highcharts-react-official'
 
 if (typeof Highcharts === 'object') {
     HighchartsExporting(Highcharts)
@@ -20,7 +20,7 @@ if (typeof Highcharts === 'object') {
 
 
 // Importa el módulo de más gráficos para Highcharts
-// HighchartsMore(Highcharts);
+HighchartsMore(Highcharts);
 
 // Configura Highcharts globalmente para desactivar los créditos
 Highcharts.setOptions({
