@@ -8,13 +8,13 @@ import HighchartsReact from 'highcharts-react-official';
 
 
 
-// import Highcharts from 'highcharts'
-import HighchartsExporting from 'highcharts/modules/exporting'
-// import HighchartsReact from 'highcharts-react-official'
+// // import Highcharts from 'highcharts'
+// import HighchartsExporting from 'highcharts/modules/exporting'
+// // import HighchartsReact from 'highcharts-react-official'
 
-if (typeof Highcharts === 'object') {
-    HighchartsExporting(Highcharts)
-}
+// if (typeof Highcharts === 'object') {
+//     HighchartsExporting(Highcharts)
+// }
 
 
 

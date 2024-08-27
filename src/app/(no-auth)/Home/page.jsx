@@ -9,7 +9,9 @@ import SelectSimple from '@/components/SelectSimple'
 
 import { useSearchParams } from 'next/navigation'
 
-import Velocimetro from '@/components/Velocimetro'
+// import Velocimetro from '@/components/Velocimetro'
+const Velocimetro = dynamic( () => import("@/components/Velocimetro"),{  ssr: false, });
+
 
 import {
     refunds, historial,
