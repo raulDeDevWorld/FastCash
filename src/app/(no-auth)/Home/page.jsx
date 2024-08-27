@@ -8,6 +8,7 @@ import Loader from '@/components/Loader'
 import SelectSimple from '@/components/SelectSimple'
 
 import { useSearchParams } from 'next/navigation'
+import dynamic from 'next/dynamic';
 
 // import Velocimetro from '@/components/Velocimetro'
 const Velocimetro = dynamic( () => import("@/components/Velocimetro"),{  ssr: false, });
