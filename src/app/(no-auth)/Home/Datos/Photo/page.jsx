@@ -1,14 +1,8 @@
 'use client'
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 
-// Debounce function to limit the rate of function calls
-const debounce = (func, wait) => {
-  let timeout;
-  return (...args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  };
-};
+// Helper function to clamp values within a range
+const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
 
 const ImageCard = ({ imageUrl, altText }) => {
   const [rotation, setRotation] = useState(0);
@@ -19,7 +13,7 @@ const ImageCard = ({ imageUrl, altText }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const imgRef = useRef(null);
   const dragStart = useRef({ x: 0, y: 0 });
-  const transformString = useRef('');
+  const lastMousePosition = useRef({ x: 0, y: 0 });
 
   // Handle rotation
   const rotateLeft = () => setRotation((prevRotation) => prevRotation - 90);
@@ -37,6 +31,7 @@ const ImageCard = ({ imageUrl, altText }) => {
   const startDrag = (e) => {
     setDragging(true);
     dragStart.current = { x: e.clientX - position.x, y: e.clientY - position.y };
+    lastMousePosition.current = { x: e.clientX, y: e.clientY };
     e.preventDefault();
   };
 
@@ -45,38 +40,39 @@ const ImageCard = ({ imageUrl, altText }) => {
     setDragging(false);
   };
 
-  // Handle drag movement with debounce
-  const onDrag = useCallback(
-    debounce((e) => {
-      if (dragging) {
-        const newPosition = {
-          x: e.clientX - dragStart.current.x,
-          y: e.clientY - dragStart.current.y,
-        };
-        setPosition(newPosition);
-      }
-    }, 16), // 16ms for ~60fps
-    [dragging]
-  );
-
-  useEffect(() => {
-    // Build the transform string
-    transformString.current = `rotate(${rotation}deg) scale(${zoom / 100}) ${flipY ? 'scaleX(-1)' : ''} ${flipX ? 'scaleY(-1)' : ''} translate3d(${position.x}px, ${position.y}px, 0)`;
-  }, [rotation, zoom, flipY, flipX, position]);
+  // Handle drag movement
+  const onDrag = useCallback((e) => {
+    if (dragging) {
+      const deltaX = e.clientX - lastMousePosition.current.x;
+      const deltaY = e.clientY - lastMousePosition.current.y;
+      
+      setPosition((prevPosition) => ({
+        x: prevPosition.x + deltaX,
+        y: prevPosition.y + deltaY
+      }));
+      
+      lastMousePosition.current = { x: e.clientX, y: e.clientY };
+    }
+  }, [dragging]);
 
   useEffect(() => {
     if (dragging) {
-      document.addEventListener('mousemove', onDrag);
+      const handleMouseMove = (e) => {
+        requestAnimationFrame(() => onDrag(e));
+      };
+      
+      document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', endDrag);
-    } else {
-      document.removeEventListener('mousemove', onDrag);
-      document.removeEventListener('mouseup', endDrag);
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', endDrag);
+      };
     }
-    return () => {
-      document.removeEventListener('mousemove', onDrag);
-      document.removeEventListener('mouseup', endDrag);
-    };
   }, [dragging, onDrag]);
+
+  // Apply transformation to the image
+  const transformString = `rotate(${rotation}deg) scale(${zoom / 100}) ${flipY ? 'scaleX(-1)' : ''} ${flipX ? 'scaleY(-1)' : ''} translate3d(${position.x}px, ${position.y}px, 0)`;
 
   return (
     <div className="mx-auto bg-white shadow-lg rounded-lg overflow-hidden p-4 relative">
@@ -87,7 +83,7 @@ const ImageCard = ({ imageUrl, altText }) => {
           ref={imgRef}
           className="transition-transform duration-300"
           style={{
-            transform: transformString.current,
+            transform: transformString,
             transformOrigin: 'center center',
             willChange: 'transform',
             cursor: dragging ? 'grabbing' : 'grab',

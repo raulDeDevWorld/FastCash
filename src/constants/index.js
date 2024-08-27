@@ -520,10 +520,112 @@ const estadoRembolso = [
 const estado = ['En verficación', 'Transfiriendo', 'Exitoso', 'Rechazado']
 
 
+const historial= [
+  {
+    "descripcionExcepcion": "94830213",
+    "apodoUsuario": "X4-zeus-admin2",
+    "aplicarCodigo": "XYZ",
+    "codigoProducto": "2003",
+    "codigoOperacion": "网页使用【Windows NT 10.0; Win64; x64】设备登录，登录IP：192.168.1.1",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-27 10:23:45"
+  },
+  {
+    "descripcionExcepcion": "50382947",
+    "apodoUsuario": "P7-athena-user1",
+    "aplicarCodigo": "LMN",
+    "codigoProducto": "3002",
+    "codigoOperacion": "网页使用【Mac OS X 10_15_7】设备登录，登录IP：172.16.254.1",
+    "contenidoOperacion": "false",
+    "resultadosOperacion": "false",
+    "tiempoOperacion": "2024-08-26 15:40:32"
+  },
+  {
+    "descripcionExcepcion": "19283746",
+    "apodoUsuario": "Q1-hades-admin3",
+    "aplicarCodigo": "ABC",
+    "codigoProducto": "4001",
+    "codigoOperacion": "网页使用【Linux x86_64】设备登录，登录IP：203.0.113.42",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-25 11:15:22"
+  },
+  {
+    "descripcionExcepcion": "38475692",
+    "apodoUsuario": "Y9-hermes-user4",
+    "aplicarCodigo": "DEF",
+    "codigoProducto": "5004",
+    "codigoOperacion": "网页使用【Windows NT 10.0; Win64; x64】设备登录，登录IP：198.51.100.1",
+    "contenidoOperacion": "false",
+    "resultadosOperacion": "false",
+    "tiempoOperacion": "2024-08-24 18:52:19"
+  },
+  {
+    "descripcionExcepcion": "20495832",
+    "apodoUsuario": "T6-hera-admin5",
+    "aplicarCodigo": "GHI",
+    "codigoProducto": "6003",
+    "codigoOperacion": "网页使用【iPhone; CPU iPhone OS 14_0】设备登录，登录IP：203.0.113.55",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-23 22:10:08"
+  },
+  {
+    "descripcionExcepcion": "76482903",
+    "apodoUsuario": "F5-apollo-user6",
+    "aplicarCodigo": "JKL",
+    "codigoProducto": "7005",
+    "codigoOperacion": "网页使用【Android 11】设备登录，登录IP：192.0.2.25",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-22 14:36:54"
+  },
+  {
+    "descripcionExcepcion": "39485721",
+    "apodoUsuario": "N8-artemis-admin7",
+    "aplicarCodigo": "MNO",
+    "codigoProducto": "8002",
+    "codigoOperacion": "网页使用【Windows NT 10.0; Win64; x64】设备登录，登录IP：198.51.100.42",
+    "contenidoOperacion": "false",
+    "resultadosOperacion": "false",
+    "tiempoOperacion": "2024-08-21 17:05:33"
+  },
+  {
+    "descripcionExcepcion": "58473926",
+    "apodoUsuario": "K3-dionysus-user8",
+    "aplicarCodigo": "PQR",
+    "codigoProducto": "9004",
+    "codigoOperacion": "网页使用【Linux x86_64】设备登录，登录IP：203.0.113.77",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-20 12:47:41"
+  },
+  {
+    "descripcionExcepcion": "29384756",
+    "apodoUsuario": "V4-ares-admin9",
+    "aplicarCodigo": "STU",
+    "codigoProducto": "1001",
+    "codigoOperacion": "网页使用【Mac OS X 10_15_7】设备登录，登录IP：192.0.2.30",
+    "contenidoOperacion": "false",
+    "resultadosOperacion": "false",
+    "tiempoOperacion": "2024-08-19 08:29:15"
+  },
+  {
+    "descripcionExcepcion": "48392017",
+    "apodoUsuario": "W7-zephyr-user10",
+    "aplicarCodigo": "VWX",
+    "codigoProducto": "1103",
+    "codigoOperacion": "网页使用【Windows NT 10.0; Win64; x64】设备登录，登录IP：198.51.100.75",
+    "contenidoOperacion": "true",
+    "resultadosOperacion": "true",
+    "tiempoOperacion": "2024-08-18 16:12:27"
+  }
+]
 
 export { refunds,
  estado,menuArray,
-    filtro_1, rangesArray,cobrador, filterCliente, factura, Jumlah, estadoRembolso
+    filtro_1, rangesArray,cobrador, filterCliente, factura, Jumlah, estadoRembolso, historial
 }
 
 
