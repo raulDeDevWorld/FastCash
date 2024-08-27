@@ -3,14 +3,10 @@ import { useAppContext } from '@/context/AppContext'
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Button from '@/components/Button'
-import Tag from '@/components/Tag'
+
 import Loader from '@/components/Loader'
-import Modal from '@/components/Modal'
 import SelectSimple from '@/components/SelectSimple'
-import ProgressBar from 'react-customizable-progressbar';
-import CircleBar from '@/components/CircleBar'
-import ReactSpeedometer from "react-d3-speedometer"
+
 import { useSearchParams } from 'next/navigation'
 
 import Velocimetro from '@/components/Velocimetro'
