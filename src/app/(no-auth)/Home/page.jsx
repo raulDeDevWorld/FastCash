@@ -9,7 +9,7 @@ import SelectSimple from '@/components/SelectSimple'
 
 import { useSearchParams } from 'next/navigation'
 
-// import Velocimetro from '@/components/Velocimetro'
+import Velocimetro from '@/components/Velocimetro'
 
 import {
     refunds, historial,
@@ -531,7 +531,7 @@ export default function Home() {
 
             {item === 'Incurrir en una estación de trabajo' &&
                 <div>
-                    {/* <div className='flex min-w-[100vw] flex-wrap justify-around relative top-[-25px]'>
+                    <div className='flex min-w-[100vw] flex-wrap justify-around relative top-[-25px]'>
                         <div className='px-2'>
                             <Velocimetro></Velocimetro>
                             <h4 className='text-center text-[14px] text-[steelblue] m-0 p-0 pb-2'>Tasa de finalizacion hoy</h4>
@@ -579,7 +579,7 @@ export default function Home() {
 
 
                         </div>
-                    </div> */}
+                    </div>
 
 
 
