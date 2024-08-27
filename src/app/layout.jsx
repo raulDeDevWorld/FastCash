@@ -1,6 +1,7 @@
 import { AppProvider } from '../context/AppContext'
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,12 @@ export default function RootLayout({
       </head>
       <AppProvider>
         <body className={inter.className}>
+
+        <Suspense fallback={<div>Loading...</div>}>
+
           {children}
+          </Suspense>
+
         </body>
       </AppProvider>
     </html>

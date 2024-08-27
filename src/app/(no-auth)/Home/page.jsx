@@ -12,6 +12,7 @@ import ProgressBar from 'react-customizable-progressbar';
 import CircleBar from '@/components/CircleBar'
 import ReactSpeedometer from "react-d3-speedometer"
 import { useSearchParams } from 'next/navigation'
+
 import Velocimetro from '@/components/Velocimetro'
 
 import {
